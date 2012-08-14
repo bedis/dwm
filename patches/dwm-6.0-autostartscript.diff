@@ -1,0 +1,28 @@
+diff -up dwm-6.0-orig/config.h dwm-6.0/config.h
+--- dwm-6.0-orig/config.h	2012-08-14 10:39:56.220805848 +0200
++++ dwm-6.0/config.h	2012-08-14 10:42:57.325189072 +0200
+@@ -1,5 +1,8 @@
+ /* See LICENSE file for copyright and license details. */
+ 
++/* autostart script path */
++static const char autostartscript[] = "/home/bedis/.config/dwm/autostart.sh";
++
+ /* appearance */
+ static const char font[]            = "-*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*";
+ static const char normbordercolor[] = "#444444";
+diff -up dwm-6.0-orig/dwm.c dwm-6.0/dwm.c
+--- dwm-6.0-orig/dwm.c	2012-08-14 10:40:03.592824312 +0200
++++ dwm-6.0/dwm.c	2012-08-14 10:45:48.881630067 +0200
+@@ -2505,6 +2505,12 @@ zoom(const Arg *arg) {
+ 
+ int
+ main(int argc, char *argv[]) {
++	if (access(autostartscript, F_OK) == 0) {
++		if (system(autostartscript) == -1) {
++			printf("There was an error while executing autostart script: %s\n",
++					autostartscript);
++		}
++	}
+ 	if(argc == 2 && !strcmp("-v", argv[1]))
+ 		die("dwm-"VERSION", © 2006-2011 dwm engineers, see LICENSE for details\n");
+ 	else if(argc != 1)
