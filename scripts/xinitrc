@@ -1,0 +1,11 @@
+# must be renamed to .xinitrc and placed in your $HOME directory
+
+# update the status bar with remaining battery load as well as time
+while xsetroot -name "Batt:$(acpi | awk '{ print $4 }' | sed s/","//g)  $(date +%R)"
+do
+	sleep 30
+done &
+
+# start up dwm
+exec ~/codaz/dwm/dwm
+
