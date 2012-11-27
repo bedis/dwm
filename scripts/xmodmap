@@ -1,0 +1,7 @@
+!must be installed in ~/.Xmodmap
+
+! key mapping for toshiba tecra s11-15h
+!keycode 121 = XF86AudioMute
+keycode 122 = XF86AudioLowerVolume
+keycode 123 = XF86AudioRaiseVolume
+

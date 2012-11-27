@@ -1,0 +1,20 @@
+#!/bin/bash
+
+#set -x
+
+#http://mkaz.com/solog/system/xterm-colors.html
+declare -a bgcolors=('black' 'AntiqueWhite4' 'CadetBlue3' 'DarkGoldenrod4' 
+	'DarkOrange3' 'DarkSalmon' 'LightBlue4' 'SeaGreen4' 'chocolate4' 'firebrick2' 'salmon4');
+
+BG=${bgcolors[$((RANDOM%${#bgcolors[@]}))]}
+
+COMMAND=""
+if [ "$*" != "" ]; then
+	COMMAND="-e $*"
+	if [ "$1" = "mutt" -o "$1" = "irssi" ]; then
+		BG="black"
+	fi
+fi
+echo $BG
+xterm -fg white -bg $BG $COMMAND &
+

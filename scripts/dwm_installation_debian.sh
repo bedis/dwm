@@ -19,9 +19,6 @@ patch -p1 < dwm-azertykey.diff
 wget http://dwm.suckless.org/patches/dwm-6.0-focusonclick.diff
 patch -p1 < dwm-6.0-focusonclick.diff
 
-wget http://dwm.suckless.org/patches/dwm-5.9-uselessgap.diff
-patch -p1 < dwm-5.9-uselessgap.diff
-
 wget https://raw.github.com/bedis/dwm/master/patches/dwm-6.0-autostartscript.diff
 patch -p1 < dwm-6.0-autostartscript.diff
 
